@@ -37,6 +37,8 @@ update_function_layers(){
 	echo "Using the layer in the function..."
 	echo "lambda function name"
 	echo ${INPUT_LAMBDA_FUNCTION_NAME}
+	echo "lambda layer version:"
+	echo ${LAYER_VERSION}
 	aws lambda update-function-configuration --function-name "${INPUT_LAMBDA_FUNCTION_NAME}" --layers "${INPUT_LAMBDA_LAYER_ARN}:${LAYER_VERSION}"
 }
 
