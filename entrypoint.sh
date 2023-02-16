@@ -8,6 +8,7 @@ configure_aws_credentials(){
 
 install_zip_dependencies(){
 	echo "Installing and zipping dependencies..."
+	cd ${INPUT_TARGET_DIR}
 	mkdir python
 	pip install --target=python -r "${INPUT_REQUIREMENTS_TXT}"
 	zip -r dependencies.zip ./python
