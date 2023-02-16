@@ -35,6 +35,8 @@ publish_function_code(){
 	echo ${INPUT_LAMBDA_FUNCTION_NAME}
 	zip -r code.zip . -x \*.git\*
 	aws lambda update-function-code --function-name "${INPUT_LAMBDA_FUNCTION_NAME}" --zip-file fileb://code.zip
+	echo "waiting for lambda function to be updated"
+	aws lambda wait function-updated --function-name "${INPUT_LAMBDA_FUNCTION_NAME}"
 }
 
 update_function_layers(){
