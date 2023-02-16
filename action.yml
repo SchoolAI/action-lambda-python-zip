@@ -1,5 +1,5 @@
 name: AWS Lambda Zip Deploy - Python (w/ target directory)
-author: Qubitro
+author: SchoolAI/cahlan
 description: Zip deploy to AWS Lambda with requirements in a separate layer.
 inputs:
   requirements_txt:
@@ -12,6 +12,9 @@ inputs:
   lambda_function_name:
     description: The Lambda function name. Check the AWS docs/readme for examples.
     required: true
+  lambda_region:
+    description: The Lambda function region. Check the AWS docs/readme for examples.
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
