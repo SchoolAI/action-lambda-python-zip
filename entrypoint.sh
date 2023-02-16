@@ -45,7 +45,7 @@ update_function_layers(){
 	echo ${INPUT_LAMBDA_FUNCTION_NAME}
 	echo "lambda layer version:"
 	echo ${LAYER_VERSION}
-	aws lambda update-function-configuration --function-name "${INPUT_LAMBDA_FUNCTION_NAME}" --layers "${INPUT_LAMBDA_LAYER_ARN}:${LAYER_VERSION}"
+	aws lambda update-function-configuration --function-name "${INPUT_LAMBDA_FUNCTION_NAME}" --layers "${INPUT_LAMBDA_LAYER_ARN}:${LAYER_VERSION}" --environment "Variables={OPENAI_API_KEY=${OPENAI_API_KEY}}"
 }
 
 deploy_lambda_function(){
